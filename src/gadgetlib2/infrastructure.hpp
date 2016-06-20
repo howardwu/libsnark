@@ -119,7 +119,7 @@ bool IsPower2(const long x);
 }
 //#define CEIL(a)  ((int64_t)ceil((double)(a)))
 
-using libsnark::UNUSED;
+using libff::UNUSED;
 } // namespace gadgetlib2
 
 #endif   // __infrastructure_HPP

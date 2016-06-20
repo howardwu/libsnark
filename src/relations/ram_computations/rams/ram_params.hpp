@@ -39,7 +39,7 @@ template<typename ramT>
 using ram_base_field = typename ramT::base_field_type;
 
 template<typename ramT>
-using ram_cpu_state = bit_vector;
+using ram_cpu_state = libff::bit_vector;
 
 template<typename ramT>
 using ram_boot_trace = memory_store_trace;

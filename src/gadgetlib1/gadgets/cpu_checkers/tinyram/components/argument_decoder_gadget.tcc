@@ -122,7 +122,7 @@ void argument_decoder_gadget<FieldT>::generate_r1cs_witness()
 template<typename FieldT>
 void test_argument_decoder_gadget()
 {
-    print_time("starting argument_decoder_gadget test");
+    libff::print_time("starting argument_decoder_gadget test");
 
     tinyram_architecture_params ap(16, 16);
     tinyram_program P; P.instructions = generate_tinyram_prelude(ap);
@@ -179,7 +179,7 @@ void test_argument_decoder_gadget()
     assert(pb.is_satisfied());
     printf("positive test (get imm) successful\n");
 
-    print_time("argument_decoder_gadget tests successful");
+    libff::print_time("argument_decoder_gadget tests successful");
 }
 
 } // libsnark
