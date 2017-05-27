@@ -16,7 +16,7 @@ addons:
 
 branches:
   only:
-    - cmake-master-merging
+    - cmake-master-travis-merging
 
 before_install:
   - sudo apt-get install build-essential cmake git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps3-dev pkg-config gnuplot-x11 python-markdown libgtest-dev
