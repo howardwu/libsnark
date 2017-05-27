@@ -29,17 +29,17 @@ install:
   - cd libff
   - git submodule init && git submodule update
   - mkdir build && cd build
-  - cmake ..
+  - cmake .. -DDEBUG=ON # TODO (howardwu): Run production mode in addition to debug mode
   - make
-  - make install
+  - sudo make install
   - cd ../..
   # Install libfqfft
   - git clone https://github.com/scipr-lab/libfqfft.git
   - cd libfqfft
   - mkdir build && cd build
-  - cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX
+  - cmake .. -DDEBUG=ON # TODO (howardwu): Run production mode in addition to debug mode
   - make
-  - make install
+  - sudo make install
   - cd ../../
   # Install git submodules
   - git submodule init && git submodule update
