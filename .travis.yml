@@ -1,0 +1,57 @@
+language: cpp
+sudo: required
+dist: trusty
+compiler:
+  - gcc
+os:
+  - linux
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-5
+      - g++-5
+
+branches:
+  only:
+    - cmake-master-merging
+
+before_install:
+  - sudo apt-get install build-essential cmake git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps3-dev pkg-config gnuplot-x11 python-markdown libgtest-dev
+  # Checking versions
+  - g++ --version
+
+install:
+  # Install libff
+  - git clone https://github.com/scipr-lab/libff.git
+  - cd libff
+  - git submodule init && git submodule update
+  - mkdir build && cd build
+  - cmake ..
+  - make
+  - make install
+  - cd ../..
+  # Install libfqfft
+  - git clone https://github.com/scipr-lab/libfqfft.git
+  - cd libfqfft
+  - mkdir build && cd build
+  - cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX
+  - make
+  - make install
+  - cd ../../
+  # Install git submodules
+  - git submodule init && git submodule update
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake .. -DDEBUG=ON # TODO (howardwu): Run production mode in addition to debug mode
+
+script:
+  - make
+  - make check
+
+notifications:
+  email: false
