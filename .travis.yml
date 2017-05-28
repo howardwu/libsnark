@@ -48,10 +48,11 @@ install:
   - make
   - sudo make install
   - cd ../..
-  # Install git submodules
-  - git submodule init && git submodule update
 
 before_script:
+  - pwd
+  # Install git submodules
+  - git submodule init && git submodule update
   - mkdir build
   - cd build
   - cmake .. -DDEBUG=ON # TODO (howardwu): Run production mode in addition to debug mode
