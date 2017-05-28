@@ -441,18 +441,6 @@ target_link_libraries(
 )
 
 add_executable(
-  zk_proof_systems_r1cs_mp_ppzkpcd_test
-  EXCLUDE_FROM_ALL
-
-  zk_proof_systems/pcd/r1cs_pcd/r1cs_mp_ppzkpcd/tests/test_r1cs_mp_ppzkpcd.cpp
-)
-target_link_libraries(
-  zk_proof_systems_r1cs_mp_ppzkpcd_test
-
-  snark
-)
-
-add_executable(
   zk_proof_systems_r1cs_sp_ppzkpcd_test
   EXCLUDE_FROM_ALL
 
@@ -646,10 +634,6 @@ add_test(
   COMMAND zk_proof_systems_bacs_ppzksnark_test
 )
 add_test(
-  NAME zk_proof_systems_r1cs_mp_ppzkpcd_test
-  COMMAND zk_proof_systems_r1cs_mp_ppzkpcd_test
-)
-add_test(
   NAME zk_proof_systems_r1cs_ppzksnark_test
   COMMAND zk_proof_systems_r1cs_ppzksnark_test
 )
@@ -706,7 +690,6 @@ add_dependencies(check gadgetlib2_variable_test)
 add_dependencies(check relations_qap_test)
 add_dependencies(check relations_ssp_test)
 add_dependencies(check zk_proof_systems_bacs_ppzksnark_test)
-# add_dependencies(check zk_proof_systems_r1cs_mp_ppzkpcd_test)
 add_dependencies(check zk_proof_systems_r1cs_ppzksnark_test)
 add_dependencies(check zk_proof_systems_r1cs_gg_ppzksnark_test)
 add_dependencies(check zk_proof_systems_r1cs_sp_ppzkpcd_test)
