@@ -55,7 +55,7 @@ script:
   - make
   # TODO (howardwu): Remove travis_wait, resolve runtime on targets:
   # gadgetlib1_fooram_test, zk_proof_systems_r1cs_sp_ppzkpcd_test, zk_proof_systems_ram_zksnark_test
-  - travis_wait 40 make check
+  - travis_wait 60 make check
 
 notifications:
   email: false
