@@ -14,10 +14,6 @@ addons:
       - gcc-5
       - g++-5
 
-branches:
-  only:
-    - cmake-master-travis-merging
-
 before_install:
   - sudo apt-get install build-essential cmake git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps3-dev pkg-config gnuplot-x11 python-markdown
   # Install GTest
@@ -28,6 +24,7 @@ before_install:
   # Checking versions
   - g++ --version
 
+# TODO (howardwu): Update this install process once libff and libfqfft support are resolved.
 install:
   # Install libff
   - git clone https://github.com/scipr-lab/libff.git
@@ -48,8 +45,6 @@ install:
   - cd ../..
 
 before_script:
-  - pwd
-  - ls
   # Install git submodules
   - git submodule init && git submodule update
   - mkdir build
@@ -58,7 +53,7 @@ before_script:
 
 script:
   - make
-  - make check
+  - travis_wait make check
 
 notifications:
   email: false
